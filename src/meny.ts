@@ -97,5 +97,15 @@ export function perKategori(meny: Ratt[]): Record<string, number> {
 
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).
 export function medNyttPris(ratt: Ratt, nyttPris: number): Ratt {
-  // TODO
+  const newDish: Ratt = { ...ratt, pris: nyttPris };
+  return newDish;
 }
+
+/**
+ * { ...ratt, pris: nyttPris } creates a new object with all the original dish’s properties,
+ * but with an updated price. The original ratt remains unchanged.
+ *
+ * That’s preferable when you want to avoid side effects—for example,
+ * if other code still relies on the original object, or if you’re updating UI state where
+ * change detection may depend on a new object reference.
+ */
