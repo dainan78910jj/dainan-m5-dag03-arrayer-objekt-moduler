@@ -53,7 +53,34 @@ export function sorteraEfterPris(meny: Ratt[]): Ratt[] {
 // 7. Totalpris för en order. order = [{ id: 1, antal: 2 }, { id: 5, antal: 1 }]
 //    Slå upp priset för varje id i menyn. Okända id räknas som 0 kr.
 export function totalPris(order: OrderRad[], meny: Ratt[]): number {
-  // TODO
+  // solution 1
+  let sum: number = 0;
+  for (let i = 0; i < order.length; i++) {
+    for (let j = 0; j < meny.length; j++) {
+      if (order[i].id === meny[j].id) {
+        sum += meny[j].pris * order[i].antal;
+      }
+    }
+  }
+  return sum;
+
+  // solution 2
+  // return order.reduce((sum: number, o: OrderRad) => {
+  //   const ratt = meny.find((m) => m.id === o.id);
+  //   if (ratt) {
+  //     sum += ratt.pris * o.antal;
+  //   }
+  //   return sum;
+  // }, 0);
+
+  // solution 3
+  // return meny.reduce((sum: number, m: Ratt) => {
+  //   const od = order.find((o) => o.id === m.id);
+  //   if (od) {
+  //     sum += m.pris * od.antal;
+  //   }
+  //   return sum;
+  // }, 0);
 }
 
 // 8. Antal rätter per kategori som ett objekt: { bakverk: 3, dryck: 2, lunch: 3 } (reduce)
