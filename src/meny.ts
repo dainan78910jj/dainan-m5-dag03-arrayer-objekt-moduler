@@ -85,7 +85,14 @@ export function totalPris(order: OrderRad[], meny: Ratt[]): number {
 
 // 8. Antal rätter per kategori som ett objekt: { bakverk: 3, dryck: 2, lunch: 3 } (reduce)
 export function perKategori(meny: Ratt[]): Record<string, number> {
-  // TODO
+  return meny.reduce<Record<string, number>>((category, m) => {
+    if (category[m.kategori]) {
+      category[m.kategori]++;
+    } else {
+      category[m.kategori] = 1;
+    }
+    return category;
+  }, {});
 }
 
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).
