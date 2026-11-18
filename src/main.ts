@@ -15,7 +15,7 @@ drycker.push("Chai");
 console.log(drycker);
 console.log(`The length of list is ${drycker.length}.`);
 
-const lastItem: string = drycker.pop();
+const lastItem: string | undefined = drycker.pop();
 console.log(`The removed element is ${lastItem}.`);
 
 const indexLatte: number = drycker.indexOf("Latte");
