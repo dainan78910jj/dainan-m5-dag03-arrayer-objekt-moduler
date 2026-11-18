@@ -10,17 +10,18 @@ import type { Ratt, OrderRad } from "./typer";
 // I think it’s `filter`.
 
 export function vegetariskaRatter(meny: Ratt[]): Ratt[] {
-  // TODO
+  const res = meny.filter((m) => m.vegetarisk);
+  return res;
 }
 
 // 2. Bara namnen, som en array av text (map). ["Kardemummabulle", ...]
 export function rattNamn(meny: Ratt[]): string[] {
-  // TODO
+  return meny.map((m) => m.namn);
 }
 
 // 3. En prislista som text: "Kardemummabulle – 35 kr" (map + formateraPris)
 export function prislista(meny: Ratt[]): string[] {
-  // TODO
+  return meny.map((m) => `${m.namn} – ${formateraPris(m.pris)}`);
 }
 
 // 4. Hitta en rätt via id (find). Returnerar objektet, eller undefined om det saknas.
