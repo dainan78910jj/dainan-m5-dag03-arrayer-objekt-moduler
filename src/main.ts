@@ -57,4 +57,12 @@ console.log(Object.keys(kopp));
 // a) skriv ut hur många rätter menyn har och namnet på den första
 // b) loopa med for...of och skriv ut "namn – pris kr" för varje rätt
 // c) skriv ut namnet på den sista rätten utan att veta antalet (tips: length - 1)
-// TODO
+
+console.log(`The number of dishes: ${meny.length}`);
+console.log(`The name of the first dish is ${meny[0].namn}.`);
+
+for (const m of meny) {
+  console.log(`${m.namn} - ${m.pris} kr`);
+}
+
+console.log(`The last dish is ${meny[meny.length - 1].namn}.`);
