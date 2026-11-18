@@ -5,6 +5,10 @@ import { formateraPris } from "./pris";
 import type { Ratt, OrderRad } from "./typer";
 
 // 1. Alla vegetariska rätter (filter). Returnerar en ny array.
+
+// Guessing vegetariskaRatter is expected to return a new array containing only vegetarian dishes.
+// I think it’s `filter`.
+
 export function vegetariskaRatter(meny: Ratt[]): Ratt[] {
   // TODO
 }
